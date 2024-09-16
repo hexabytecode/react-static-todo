@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# 🚀 React Static Todo List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🔗 **Live Demo**: [https://react-static-todo.vercel.app/](https://react-static-todo.vercel.app/)
 
-## Available Scripts
+A modern and intuitive **React** application that displays a static todo list with a focus on clean, scalable design and user experience. This project highlights the use of **Axios** for API call, a **modular & reusable architecture**, and the implementation of best practices in React.
 
-In the project directory, you can run:
+## ✨ Features
+- ⚡ **Efficient Data Management with Axios**: Utilized Axios for streamlined and effective API requests, improving data handling and error management.
+- 🗂️ **Modular Code Architecture**: Designed with a modular approach, incorporating well-defined services, components, and helper functions for a maintainable and scalable codebase.
+- 🧩 **Structured Project Organization**: Maintained a clean and organized project structure to ensure ease of understanding and extensibility.
+- 📱 **Responsive Design**: Applied responsive design principles to ensure a seamless user experience across all devices, with a focus on accessibility and visual appeal.
+- 🎨 **Enhanced UI/UX**: Developed a modern dark-themed interface that enhances readability and user interaction.
 
-### `npm start`
+## 📚 What Did I Learn?
+- **Component Lifecycles**: Gained insights into React component lifecycles and how they impact data flow and component behavior.
+- **Modular Code Practices**: Developed skills in writing modular code, similar to MAANG-level practices, resulting in a more organized and scalable application.
+- **State Management and Props Handling**: Improved proficiency in managing state with React's `useState` & learned about `useEffect`, handling props efficiently, and applying ES6 object destructuring for cleaner code.
+- **Responsive and Accessible Design**: Implemented responsive design techniques to ensure the app is visually appealing and functional on various devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎨 Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://github.com/user-attachments/assets/37ffb4b9-3ad1-4ee0-b0d5-f19e978ffe4d)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 How to Run Locally
 
-### `npm run build`
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/hexabytecode/react-static-todo.git
+   cd react-static-todo
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Start the development server**:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Access the app**:  
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm run eject`
+## 🛠️ API Details
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app fetches todo data from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users/1/todos), displaying a list of tasks with their respective details.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Made with ❤️ and React.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
