@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import getTodoData from "../../services/api.js";
 import TodoTask from "../TodoTask/TodoTask.js";
+import filterTodoData from "../../services/helper.js";
 import "./Table.css";
 
-export default function Table() {
+export default function Table({ searchQuery }) {
   const [todoData, setTodoData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const todosPerPage = 10;
 
@@ -13,6 +15,7 @@ export default function Table() {
       try {
         const data = await getTodoData();
         setTodoData(data);
+        setFilteredData(data);
       } catch (e) {
         alert(e);
       }
@@ -21,13 +24,19 @@ export default function Table() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const filtered = filterTodoData(todoData, searchQuery);
+    setFilteredData(filtered);
+    setCurrentPage(1);
+  }, [searchQuery, todoData]);
+
   const indexOfLastTodo = currentPage * todosPerPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todoData.slice(indexOfFirstTodo, indexOfLastTodo);
+  const currentTodos = filteredData.slice(indexOfFirstTodo, indexOfLastTodo);
 
-  const nextPage = () => setCurrentPage((currentPage) => currentPage + 1);
+  const nextPage = () => setCurrentPage((prevPage) => prevPage + 1);
   const prevPage = () =>
-    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
 
   return (
     <div className="table-container">
@@ -38,9 +47,11 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {currentTodos.map((todo) => (
-            <TodoTask key={todo.id} todo={todo} />
-          ))}
+          {currentTodos.length > 0 ? (
+            currentTodos.map((todo) => <TodoTask key={todo.id} todo={todo} />)
+          ) : (
+            <TodoTask todo={null} />
+          )}
         </tbody>
       </table>
       <div className="pagination">
@@ -49,7 +60,7 @@ export default function Table() {
         </button>
         <button
           onClick={nextPage}
-          disabled={indexOfLastTodo >= todoData.length}
+          disabled={indexOfLastTodo >= filteredData.length}
         >
           ➡️
         </button>
