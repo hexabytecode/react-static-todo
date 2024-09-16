@@ -1,42 +1,16 @@
-import { useState, useEffect } from "react";
-import getTodoData from "../../services/api.js";
+import useTable from "../../services/useTable.js";
 import TodoTask from "../TodoTask/TodoTask.js";
-import filterTodoData from "../../services/helper.js";
 import "./Table.css";
 
 export default function Table({ searchQuery }) {
-  const [todoData, setTodoData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const todosPerPage = 10;
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getTodoData();
-        setTodoData(data);
-        setFilteredData(data);
-      } catch (e) {
-        alert(e);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const filtered = filterTodoData(todoData, searchQuery);
-    setFilteredData(filtered);
-    setCurrentPage(1);
-  }, [searchQuery, todoData]);
-
-  const indexOfLastTodo = currentPage * todosPerPage;
-  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = filteredData.slice(indexOfFirstTodo, indexOfLastTodo);
-
-  const nextPage = () => setCurrentPage((prevPage) => prevPage + 1);
-  const prevPage = () =>
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  const {
+    currentTodos,
+    filteredData,
+    nextPage,
+    prevPage,
+    currentPage,
+    indexOfLastTodo,
+  } = useTable(searchQuery);
 
   return (
     <div className="table-container">
